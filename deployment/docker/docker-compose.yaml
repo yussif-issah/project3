@@ -1,0 +1,42 @@
+version: "3"
+services:
+  reverseproxy:
+      image: hayatu88/reverseproxy
+      ports:
+          - 8080:8080
+      restart: always
+      depends_on:
+        - backend-user
+        - backend-feed     
+  backend-user:
+    image: hayatu88/udacity-c3-restapi-user
+    volumes:
+      - c:/Users/AHMED ABBAN/.aws
+    environment:
+      POSTGRESS_USERNAME: "udagramissah"
+      POSTGRESS_PASSWORD: "hayatu88"
+      POSTGRESS_DB: "udagramissah"
+      POSTGRESS_HOST: "udagramissah.c2ovwhx32p7w.us-east-1.rds.amazonaws.com" 
+      AWS_REGION: "us-east-1"
+      AWS_PROFILE: "default" 
+      AWS_BUCKET: "udagramissah"
+      JWT_SECRET: "hello world"
+      URL: "http://localhost:8100"
+  backend-feed:
+    image: hayatu88/udacity-c3-restapi-feed
+    volumes:
+      - c:/Users/AHMED ABBAN/.aws
+    environment:
+      POSTGRESS_USERNAME: "udagramissah"
+      POSTGRESS_PASSWORD: "hayatu88"
+      POSTGRESS_DB: "udagramissah"
+      POSTGRESS_HOST: "udagramissah.c2ovwhx32p7w.us-east-1.rds.amazonaws.com" 
+      AWS_REGION: "us-east-1"
+      AWS_PROFILE: "default" 
+      AWS_BUCKET: "udagramissah"
+      JWT_SECRET: "hello world"
+      URL: "http://localhost:8100"
+  frontend:
+    image: hayatu88/udacity-c3-frontend
+    ports:
+      - "8100:80"

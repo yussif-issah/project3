@@ -10,6 +10,6 @@ attached to the file name.
 
 docker images url:
 hayatu88/reverseproxy:latest
-hayatu88/udacity-c3-frontend:latest
-hayatu88/udacity-c3-restapi-feed:latest
+hayatu88/udacity-c3-frontend:latest,
+hayatu88/udacity-c3-restapi-feed:latest,
 hayatu88/udacity-c3-restapi-user:latest

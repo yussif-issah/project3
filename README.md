@@ -7,3 +7,9 @@ repo has been built.
 Now navigate back to k8s and run : kubectl apply -f backend-feed-services.yaml ,do this for all file with the service name attached.
 now you can deploy the app on kubernetes cluster by running :kubectl apply -f reverseproxy-deployment.yaml , do this with all files with deployment
 attached to the file name.
+
+docker images url:
+hayatu88/reverseproxy:latest
+hayatu88/udacity-c3-frontend:latest
+hayatu88/udacity-c3-restapi-feed:latest
+hayatu88/udacity-c3-restapi-user:latest
